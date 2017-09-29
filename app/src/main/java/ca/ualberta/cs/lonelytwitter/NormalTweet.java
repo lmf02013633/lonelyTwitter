@@ -13,6 +13,12 @@ import java.util.Date;
  * Created by minfeng1 on 9/14/17.
  */
 
+/**
+ * @see Tweet
+ * @return isImportant
+ * @author minfeng1
+ */
+
 public class NormalTweet extends Tweet{
     public NormalTweet (String message){
         super(message);
