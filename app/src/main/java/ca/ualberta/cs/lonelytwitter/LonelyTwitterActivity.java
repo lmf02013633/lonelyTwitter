@@ -1,3 +1,14 @@
+/*
+ * LonelyTwitterActivity
+ *
+ * September 28th, 2017
+ *
+ * Copyright (c) Team X, CMPUT301, University of Alberta. All Rights Reserved. You may use, distribute, or modify this code under terms and conditions of the Code of Students Behavior at
+ *
+ *
+ */
+
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -24,6 +35,12 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * Represents an activity
+ * @author minfeng1
+ * @see Tweet
+ */
+
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "file.sav";
@@ -33,6 +50,11 @@ public class LonelyTwitterActivity extends Activity {
 	private ArrayList<Tweet> tweets=new ArrayList<Tweet>();
 	private ArrayAdapter<Tweet> adapter;
 	/** Called when the activity is first created. */
+
+	/**
+	 *
+	 * @param savedInstanceState
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -63,6 +85,11 @@ public class LonelyTwitterActivity extends Activity {
 		});
 	}
 
+	/**
+	 * onStart
+	 * @see Tweet
+	 * @see ArrayAdapter
+	 */
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -72,6 +99,11 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
+	/**
+	 * loadFromFile
+	 * @see Gson
+	 * @throws FileNotFoundException
+	 */
 	private void loadFromFile() {
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
@@ -89,7 +121,13 @@ public class LonelyTwitterActivity extends Activity {
 			throw new RuntimeException();
 		}
 	}
-	
+
+	/**
+	 * saveInFIle
+	 * @see Gson
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
